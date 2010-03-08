@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.google.code.arit</groupId>
+    <artifactId>arit</artifactId>
+    <version>0.1</version>
+    <packaging>pom</packaging>
+    <name>Arit</name>
+    <url>http://code.google.com/p/arit/</url>
+    <inceptionYear>2010</inceptionYear>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Andreas Veithen</name>
+            <id>andreas.veithen</id>
+            <email>andreas.veithen (at) gmail.com</email>
+            <roles>
+                <role>Despot</role>
+            </roles>
+        </developer>
+    </developers>
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/arit/issues/</url>
+    </issueManagement>
+    <scm>
+        <url>http://code.google.com/p/arit/source/browse/#svn/tags/arit-0.1</url>
+        <connection>scm:svn:http://arit.googlecode.com/svn/tags/arit-0.1</connection>
+        <developerConnection>scm:svn:https://arit.googlecode.com/svn/tags/arit-0.1</developerConnection>
+    </scm>
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.4</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <modules>
+        <module>arit-api</module>
+        <module>arit-jdbc</module>
+        <module>arit-jetty</module>
+        <module>arit-test-war</module>
+        <module>arit-threads</module>
+        <module>arit-tomcat</module>
+        <module>arit-war</module>
+        <module>arit-websphere</module>
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.0</version>
+                <inherited>false</inherited>
+            </plugin>
+        </plugins>
+    </build>
+</project>
