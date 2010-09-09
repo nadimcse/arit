@@ -18,10 +18,10 @@
   * Thread locals.
   * Registered JDBC drivers.
   * Shutdown hooks.
+  * JMX MBeans.
 
 = Not yet supported =
 
-  * JMX MBeans.
   * JNDI resources.
   * Hierarchical class loader view (EAR->EJB/WAR).
   * Distinguish started from defunct applications.
