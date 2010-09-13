@@ -1,0 +1,9 @@
+#summary Release notes
+
+= Release notes for 0.3 =
+
+This release adds support for MBeans. In addition, there have been two important architectural changes:
+  * Arit now uses the Plexus container.
+  * The concept of _RBean_ has been introduced to simplify reflection.
+
+*Important notice for Websphere users*: This release requires at least version 7.0.0.7 because Plexus is impacted by APAR PK86109.
