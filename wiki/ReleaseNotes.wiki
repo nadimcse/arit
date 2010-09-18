@@ -7,3 +7,5 @@ This release adds support for MBeans. In addition, there have been two important
   * The concept of _RBean_ has been introduced to simplify reflection.
 
 *Important notice for Websphere users*: This release requires at least version 7.0.0.7 because Plexus is impacted by APAR PK86109.
+
+Due to a bug, version 0.3 will only run correctly on the JDK on which it has been built, i.e. the EAR or WAR built with Java 1.5 will not run on Java 1.6 and vice versa. Note that the EAR in the download section has been built with 1.6.
