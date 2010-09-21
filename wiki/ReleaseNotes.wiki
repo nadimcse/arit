@@ -1,5 +1,16 @@
 #summary Release notes
 
+= Release notes for 0.4 =
+
+This release is primarily targeted at !WebSphere 7.0 and adds the following new features:
+  * A graphical view that reproduces the class loader hierarchy and that shows the status (started or stopped/defunct) of each module, so that leaks can be identified easily.
+  * Arit now runs on any Java version, regardless of the version on which it has been built.
+  * Detection of a particular kind of memory leak that occurs on WAS 7.0 (see APAR IZ67457).
+
+Known issues and limitations:
+  * Arit will not run on WAS 7.0 with a fix pack level lower than 7.0.0.7.
+  * Redirection is not properly working in Arit 0.4. To access the report, use `/arit/report.html` instead of `/arit`.
+
 = Release notes for 0.3 =
 
 This release adds support for MBeans. In addition, there have been two important architectural changes:
