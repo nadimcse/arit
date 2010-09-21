@@ -20,9 +20,12 @@
   * Shutdown hooks.
   * JMX MBeans.
 
+= Supported features =
+
+  * Hierarchical class loader view (EAR->WAR).
+  * Distinguish started from defunct applications.
+
 = Not yet supported =
 
   * JNDI resources.
-  * Hierarchical class loader view (EAR->EJB/WAR).
-  * Distinguish started from defunct applications.
   * Axis2 AARs and MARs.
