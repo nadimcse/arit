@@ -4,13 +4,17 @@
 
   * Sun 1.5
   * Sun 1.6
+  * IBM 1.5
   * IBM 1.6
+  * Apache Harmony 1.5
+  * Apache Harmony 1.6
 
 = Supported containers =
 
   * Tomcat
   * Jetty
-  * Websphere 7.0 (>= 7.0.0.7 because Plexus is impacted by PK86109)
+  * !WebSphere 6.1 (partial)
+  * !WebSphere 7.0 (>= 7.0.0.7 because Plexus is impacted by PK86109)
 
 = Recognized resources =
 
