@@ -23,6 +23,7 @@
   * Registered JDBC drivers.
   * Shutdown hooks.
   * JMX MBeans.
+  * RMI exports.
 
 = Supported features =
 
