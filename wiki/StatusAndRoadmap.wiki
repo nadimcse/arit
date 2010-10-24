@@ -24,6 +24,7 @@
   * Shutdown hooks.
   * JMX MBeans.
   * RMI exports.
+  * Cached resource bundles.
 
 = Supported features =
 
