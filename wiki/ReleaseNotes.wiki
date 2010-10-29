@@ -18,6 +18,7 @@ This release also solves the redirection issue, i.e. the report can accessed usi
 Known issues and limitations:
   * Arit will not run on WAS 7.0 with a fix pack level lower than 7.0.0.7.
   * On WAS 6.1, some icons are rendered incorrectly (black opaque background instead of transparency).
+  * On WAS 7.0, if Java 2 security is enabled, a SECJ0314W warning may appear in `SystemOut.log` when Arit starts. This is caused by an unprivileged file access in the `DriverManager#loadDriversFromFiles` method (which is executed when the `DriverManager` class is initialized). In most cases, this warning can be safely ignored. However, the issue may prevent loading of JDBC drivers that use `META-INF/services/java.sql.Driver` to register themselves.
 
 = Release notes for 0.4 =
 
