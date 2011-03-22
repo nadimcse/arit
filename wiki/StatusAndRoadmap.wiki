@@ -13,7 +13,7 @@
 
   * Tomcat
   * Jetty
-  * !WebSphere 6.1 (partial)
+  * !WebSphere 6.1
   * !WebSphere 7.0 (>= 7.0.0.7 because Plexus is impacted by PK86109)
 
 = Recognized resources =
@@ -31,7 +31,8 @@
   * Hierarchical class loader view (EAR->WAR).
   * Distinguish started from defunct applications.
 
-= Not yet supported =
+= Not yet supported (but on the roadmap) =
 
   * JNDI resources.
   * Axis2 AARs and MARs.
+  * Detection for AXIS-2674.
