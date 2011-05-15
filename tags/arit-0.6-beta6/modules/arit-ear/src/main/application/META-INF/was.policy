@@ -1,0 +1,30 @@
+grant codeBase "file:${webComponent}" {
+  permission java.lang.RuntimePermission "accessDeclaredMembers";
+  permission java.lang.RuntimePermission "accessClassInPackage.*";
+  permission java.lang.RuntimePermission "getClassLoader";
+  permission java.lang.RuntimePermission "createClassLoader";
+  permission java.lang.RuntimePermission "setContextClassLoader";
+  // Arit actually doesn't modify anything in the ThreadGroup, but this permission
+  // is necessary to invoke ThreadGroup#enumerate
+  permission java.lang.RuntimePermission "modifyThreadGroup";
+  permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+  permission javax.management.MBeanServerPermission "findMBeanServer";
+  permission javax.management.MBeanPermission "*", "queryNames,getAttribute,getMBeanInfo";
+  
+  // The Maven module identity provider needs this permission:
+  permission java.io.FilePermission "${user.install.root}${/}installedApps${/}-", "read";
+  permission java.io.FilePermission "${was.install.root}${/}systemApps${/}-", "read";
+  
+  permission com.ibm.websphere.security.WebSphereRuntimePermission "AdminPermission";
+  permission com.ibm.websphere.security.WebSphereRuntimePermission "accessRuntimeClasses";
+  
+  // This permission is necessary to allow the custom classloaders in Plexus to share classes
+  permission com.ibm.oti.shared.SharedClassPermission "org.codehaus.plexus.*", "read,write";
+
+  // Permissions necessary to allow Arit to register its own MBeans
+  permission javax.management.MBeanPermission "[com.googlecode.arit:*]", "*";
+  permission javax.management.MBeanTrustPermission "*";
+  
+  // The leak detector uses java.util.Timer
+  permission java.lang.RuntimePermission "modifyThread";
+};
