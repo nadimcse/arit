@@ -1,0 +1,3 @@
+#summary Examples of known class loader leaks in various products
+
+  * [http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6916498]
