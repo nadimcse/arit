@@ -49,3 +49,11 @@ To generate a meaningful report based on the collected information, Arit also ne
 After all this theory, let's see what kind of report Arit actually produces from the collected information. The following screenshot shows an example:
 
 http://arit.googlecode.com/svn/wiki/screenshot1.png
+
+This was taken on a Tomcat which had Axis2 1.5.2 deployed. The report provides evidence for the issue described in [https://issues.apache.org/jira/browse/AXIS2-4263 AXIS2-4263]: Axis2 starts two timers, but fails to cancel one when the application is stopped. Indeed, the upper part of the screenshot shows a running instance of Axis2 with the two timers, while the other part shows a stopped instance with the remaining timer identified by Arit. Note that the "JULI per class loader logging context" actually represents a weak reference to the class loader which would eventually disappear if all other strong references were cleared.
+
+= Relation to Tomcat's memory leak prevention and detection feature =
+
+Arit is actually based on an idea borrowed from Tomcat. In 2010, the Tomcat developers added a memory leak prevention and detection feature, which is explained in more detail [http://www.tomcatexpert.com/blog/2010/04/06/tomcats-new-memory-leak-prevention-and-detection here]. The techniques used are similar, but Arit expands on them and there are some significant differences:
+  * The feature in Tomcat focuses on a small set of very common leaks and the aim is to perform automatic cleanup as a workaround for these leaks. On the other hand, Arit is focused on detection and reporting of a broader set of class loader leaks, while cleanup of these leaks is not a (primary) goal.
+  * Arit runs in other application servers as well.
