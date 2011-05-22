@@ -29,3 +29,7 @@ Obviously this is a reasonable argument (at least in a business environment wher
     * Analyzing a classic memory leak becomes virtually impossible to do if the heap dump not only contains objects from the currently running instance of an application, but also from stopped ones (which occurs if the application has a class loader leak).
 
 = How does Arit help with class loader leaks? =
+
+The aim of the Arit project is to provide a tool that helps reducing the risks and costs caused by class loader leaks. It does so in two ways:
+  * Arit reduces costs by identifying common types of class loader leaks without the need to take a heap dump of the Java process. Instead, Arit is deployed as a simple Web application and is able to generate an online report of the detected leaks (or leak suspects). In most cases, the information provided by the report makes it easy to identify the code causing the class loader leak, so that the issue can be fixed in a cost efficient way.
+  * Arit reduces risks by providing an estimation of the number of leaked class loader instances (Obviously, since Arit is not able to identify each and every class loader leak, this metric only provides a lower bound). Monitoring this metric helps determining when it is time to preventively restart the application server.
