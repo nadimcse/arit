@@ -1,0 +1,11 @@
+#summary Getting started
+
+= What are class loader leaks? =
+
+In a J2EE environment, the container will create a separate class loader for each application. More precisely, in a full featured J2EE application server, there will be a separate class loader for each enterprise application (EAR), and each Web application (WAR) will also get its own class loader, which will be a child of the EAR class loader. Obviously, pure Servlet containers such as Tomcat which don't support EAR deployment will only create class loaders for WAR files.
+
+Whenever an application is restarted or redeployed, the container will create a new class loader for the new application instance. It relies on the garbage collector to free the class loader of the stopped application instance. If for some reason after stopping an application a component outside of the application (i.e. in the JRE or in the server runtime) still holds a strong reference to the class loader of the stopped application instance, then the garbage collector will not remove the class loader from memory. This causes a particular type of memory leak called _class loader leak_.
+
+In an environment where applications are frequently restarted or redeployed without restarting the entire server, a class loader leak will eventually result in an out of memory error (although it may require many application restarts before this actually occurs). With an Oracle JRE, the error message one gets in this case is typically `java.lang.OutOfMemoryError: PermGen space`. That is because class files are stored in the !PermGen space and this is typically the memory area that gets filled first (A class file can only be discarded from memory when the corresponding class loader is garbage collected). The error will be different on other JRE implementations because memory is organized differently, but the end result is the same.
+
+= How does Arit help with class loader leaks? =
