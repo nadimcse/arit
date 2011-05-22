@@ -45,3 +45,7 @@ In some cases these data structures can be inspected using public APIs. E.g. sea
 As mentioned above, there is another category of class loader leaks that is caused by bugs in the JRE or the application server. In this case, it is the runtime environment itself that creates strong references to an application class loader. Although this typically occurs as a side effect of an action executed by the application, the application (or the application developer) can't be blamed for this. Arit handles these type of leaks in the same way, by examining the relevant data structures. However, this obviously introduces an even higher level of product dependence. An example is the [http://www-01.ibm.com/support/docview.wss?uid=swg1IZ67457 IZ67457] bug affecting some versions of the IBM JDK. Occurrences of this bug can easily be detected using reflection, but this obviously only covers one particular bug occurring in products from one particular vendor.
 
 To generate a meaningful report based on the collected information, Arit also needs to identify to which application a given class loader belongs and whether the corresponding application instance is still running or has already been stopped. This also requires server specific code and is currently only supported for a handful of servers.
+
+After all this theory, let's see what kind of report Arit actually produces from the collected information. The following screenshot shows an example:
+
+http://arit.googlecode.com/svn/wiki/screenshot1.png
