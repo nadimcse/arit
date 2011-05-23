@@ -1,6 +1,6 @@
-#summary java.util.logging (JUL) handlers
+= java.util.logging (JUL) handlers =
 
-= Introduction =
+== Introduction ==
 
 Starting with Java 1.4 the JRE provides its own logging framework (`java.util.logging`, or "JUL" for short). As with other logging frameworks such as log4j, JUL allows to register handlers (implementations of `java.util.logging.Handler`) to receive and process log messages, e.g. to write them to a particular log file location.
 
@@ -10,7 +10,7 @@ Since registering a JUL handler may have unexpected side effects, it is normally
 
 Starting with version 0.6, Arit reports JUL handlers registered by a J2EE application and identifies class loader leaks caused by applications not unregistering them when stopping.
 
-= Tomcat and JULI =
+== Tomcat and JULI ==
 
 The description given above strictly only applies to runtime environments that use the default `java.util.logging.LogManager`. This is the case e.g. for !WebSphere Application Server. Things are different for containers that configure their own `LogManager`. An example is Tomcat which installs its own implementation called [http://tomcat.apache.org/tomcat-6.0-doc/logging.html JULI]. This implementation isolates the logging configuration between different Web applications and performs automatic cleanup when an application is stopped.
 
@@ -20,7 +20,7 @@ Starting with version 0.7, Arit detects the presence of JULI and adapts its own 
   * The standard JUL plugin is disabled (since it would only inspect the logging configuration of Arit itself).
   * Instead, it will report JULI per-application logging contexts and any handlers registered in these contexts.
 
-= `SLF4JBridgeHandler` and !WebSphere =
+== `SLF4JBridgeHandler` and !WebSphere ==
 
 As noted above, !WebSphere doesn't isolate the JUL configuration per application. This means that one should be very careful before registering JUL handlers, as this may have unexpected consequences:
   * It will modify the logging behavior not only for the application that registers the handler, but for the entire VM, including the !WebSphere runtime. The reason is that the logging subsystem in !WebSphere ultimately routes all log messages through JUL.
