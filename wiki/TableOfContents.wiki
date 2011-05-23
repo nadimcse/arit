@@ -1,0 +1,6 @@
+#summary documentation outline for docreader
+  * [GettingStarted Getting started]
+  * Resource types
+    * [JULHandler JUL handlers]
+    * [JCLLogFactory Cached JCL LogFactory instances]
+  * [ReleaseNotes Release notes]
