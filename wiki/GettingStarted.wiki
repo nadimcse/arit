@@ -1,7 +1,7 @@
-#summary Getting started
 #labels Featured
+= Getting started =
 
-= What are class loader leaks? =
+== What are class loader leaks? ==
 
 In a J2EE environment, the container will create a separate class loader for each application. More precisely, in a full featured J2EE application server, there will be a separate class loader for each enterprise application (EAR), and each Web application (WAR) will also get its own class loader, which will be a child of the EAR class loader. Obviously, pure Servlet containers such as Tomcat which don't support EAR deployment will only create class loaders for WAR files.
 
@@ -9,7 +9,7 @@ Whenever an application is restarted or redeployed, the container will create a 
 
 In an environment where applications are frequently restarted or redeployed without restarting the entire server, a class loader leak will eventually result in an out of memory error (although it may require many application restarts before this actually occurs). With an Oracle JRE, the error message one gets in this case is typically `java.lang.OutOfMemoryError: PermGen space`. That is because class files are stored in the !PermGen space and this is typically the memory area that gets filled first (A class file can only be discarded from memory when the corresponding class loader is garbage collected). The error will be different on other JRE implementations because memory is organized differently, but the end result is the same.
 
-= Costs and risks related to class loader leaks =
+== Costs and risks related to class loader leaks ==
 
 Addressing class loader leaks is challenging and costly:
   * They may go unnoticed for a long time. As noted above, depending on the application and on the container configuration (heap sizes), it is possible that a class loader leak triggers an out of memory error only after a very large number of application restarts. Since a change introducing a class loader leak will not result in an error immediately, it is not easy to identify which change caused the leak.
@@ -29,13 +29,13 @@ Obviously this is a reasonable argument (at least in a business environment wher
     * It is notoriously difficult to assess the memory footprint of a J2EE application. One way to get a reasonable estimate is to stop the application and observe the impact on heap usage. However, if the application also has a class loader leak, then this method is no longer effective.
     * Analyzing a classic memory leak becomes virtually impossible to do if the heap dump not only contains objects from the currently running instance of an application, but also from stopped ones (which occurs if the application has a class loader leak).
 
-= How does Arit help with class loader leaks? =
+== How does Arit help with class loader leaks? ==
 
 The aim of the Arit project is to provide a tool that helps reducing the risks and costs caused by class loader leaks. It does so in two ways:
   * Arit reduces costs by identifying common types of class loader leaks without the need to take a heap dump of the Java process. Instead, Arit is deployed as a simple Web application and is able to generate an online report of the detected leaks (or leak suspects). In most cases, the information provided by the report makes it easy to identify the code causing the class loader leak, so that the issue can be fixed in a cost efficient way.
   * Arit reduces risks by providing an estimation of the number of leaked class loader instances (Obviously, since Arit is not able to identify each and every class loader leak, this metric only provides a lower bound). Monitoring this metric helps determining when it is time to preventively restart the application server.
 
-= How does Arit work? =
+== How does Arit work? ==
 
 As explained above, a class loader leak occurs if something outside of the application keeps a strong reference to an instance of a class loaded from the application class loader (or in some cases to the class loader itself) and if that reference is not removed when the application is stopped. With the exception of bugs in the JRE or the application server, this type of reference is always created by some explicit action requested by the application. An example is a custom MBean registered by the application. This will create a strong reference from the MBean server in the JRE or the application server to the MBean implementation loaded by the application. If the application doesn't unregister the MBean, then this strong reference prevents the application class loader from being garbage collected.
 
@@ -53,7 +53,7 @@ http://arit.googlecode.com/svn/wiki/screenshot1.png
 
 This was taken on a Tomcat which had Axis2 1.5.2 deployed. The report provides evidence for the issue described in [https://issues.apache.org/jira/browse/AXIS2-4263 AXIS2-4263]: Axis2 starts two timers, but fails to cancel one when the application is stopped. Indeed, the upper part of the screenshot shows a running instance of Axis2 with the two timers, while the other part shows a stopped instance with the remaining timer identified by Arit. Note that the "JULI per class loader logging context" actually represents a weak reference to the class loader which would eventually disappear if all other strong references were cleared.
 
-= Relation to Tomcat's memory leak prevention and detection feature =
+== Relation to Tomcat's memory leak prevention and detection feature ==
 
 Arit is actually based on an idea borrowed from Tomcat. In 2010, the Tomcat developers added a memory leak prevention and detection feature, which is explained in more detail [http://www.tomcatexpert.com/blog/2010/04/06/tomcats-new-memory-leak-prevention-and-detection here]. The techniques used are similar, but Arit expands on them and there are some significant differences:
   * The feature in Tomcat focuses on a small set of very common leaks and the aim is to perform automatic cleanup as a workaround for these leaks. On the other hand, Arit is focused on detection and reporting of a broader set of class loader leaks, while cleanup of these leaks is not a (primary) goal.
