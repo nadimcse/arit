@@ -1,5 +1,5 @@
 #labels Featured
-= Getting started =
+= Introduction =
 
 == What are class loader leaks? ==
 
