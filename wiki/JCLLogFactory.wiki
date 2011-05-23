@@ -1,4 +1,4 @@
-= Cached JCL LogFactory instances =
+= Cached JCL !LogFactory instances =
 
 == Introduction ==
 
