@@ -1,5 +1,7 @@
 #summary documentation outline for docreader
-  * [GettingStarted Getting started]
+  * Getting started
+    * [GettingStarted Introduction]
+    * [Installation Installing Arit]
   * Resource types
     * [JULHandler JUL handlers]
     * [JCLLogFactory Cached JCL LogFactory instances]
