@@ -7,3 +7,15 @@
   * The application either uses parent-first class loading or it uses parent-last class loading and the JCL library is *not* included in the application itself. It should be noted that this situation is actually in contradiction with the recommendations made by the J2EE specification:
     * Section SRV.9.7.2 of the Java Servlet Specification Version 2.4 recommends "that the application class loader be implemented so that classes and resources packaged within the WAR are loaded in preference to classes and resources residing in container-wide library JARs." This basically implies that parent-last class loading should be used (with special provisions for classes in `java.*` and `javax.*`).
     * Not packaging the JCL library in the application would mean that the application makes use of an API that is not part of the J2EE specification (and that a container is not required to provide) but doesn't contain the necessary classes. This makes the application dependent on a particular server product or configuration.
+
+If an environment that is set up like this, an application will actually invoke the JCL classes deployed higher up in the class loader hierarchy. This will indeed result in a class loader leak. The reason is that JCL maintains a per class loader cache of `LogFactory` instances. Entries in this cache keep references to the application class loaders and for reasons explained [http://wiki.apache.org/commons/Logging/UndeployMemoryLeak here] these entries can't be garbage collected when the application is stopped, resulting in a class loader leak.
+
+As pointed out above, the particular setup in which this issue occurs is actually in contradiction with the J2EE specification and should therefore be considered as broken.
+
+= !WebSphere =
+
+With respect to JCL, !WebSphere environments are particular for two reasons:
+  * Applications deployed in !WebSphere use parent-first class loading by default (which could be consider as being in contradiction with the J2EE specification).
+  * The WAS runtime already provides a version of JCL which is preconfigured such that by default, all messages logged with JCL will be routed through !WebSphere's logging subsystem.
+
+However, this doesn't mean that a !WebSphere environment satisfies the two conditions enumerated above. In fact, since !WebSphere provides JCL support out of the box, it also takes the necessary measures to clean up the class loader references held by JCL when an application is stopped. This normally avoids the class loader leak issue described above.
