@@ -1,0 +1,6 @@
+#summary Cached JCL LogFactory instances
+
+= Introduction =
+
+[http://commons.apache.org/logging/ Commons logging] (formerly known as Jakarta Commons Logging, or JCL for short) has often been blamed for causing class loader leaks, and competing APIs such as SLF4J have tried to derive some of their legitimacy from these alleged flaws in JCL. However, there is really only one setup where using JCL may cause a class loader leak. In fact, this occurs when both of the following two conditions are met:
+  * Commons logging is installed into the server runtime although the application server has no explicit support for this configuration. Indeed most servers have a mechanism that allows to add arbitrary JARs to some class loader that is an ancestor of all application class loaders.
