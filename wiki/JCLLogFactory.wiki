@@ -1,6 +1,6 @@
-#summary Cached JCL LogFactory instances
+= Cached JCL LogFactory instances =
 
-= Introduction =
+== Introduction ==
 
 [http://commons.apache.org/logging/ Commons logging] (formerly known as Jakarta Commons Logging, or JCL for short) has often been blamed for causing class loader leaks, and competing APIs such as SLF4J have tried to derive some of their legitimacy from these alleged flaws in JCL. However, there is really only one setup where using JCL may cause a class loader leak. In fact, this occurs when both of the following two conditions are met:
   * Commons logging is installed into the server runtime although the application server has no explicit support for this configuration. Indeed most servers have a mechanism that allows to add arbitrary JARs to a shared class loader from were they become visible to all applications (or a configurable subset of applications). E.g. in Tomcat 6.0 this is done by placing the JARs into the `$CATALINA_HOME/lib` directory.
@@ -12,7 +12,7 @@ If an environment that is set up like this, an application will actually invoke 
 
 As pointed out above, the particular setup in which this issue occurs is actually in contradiction with the J2EE specification and should therefore be considered as broken.
 
-= !WebSphere =
+== !WebSphere ==
 
 With respect to JCL, !WebSphere environments are particular for two reasons:
   * Applications deployed in !WebSphere use parent-first class loading by default (which could be consider as being in contradiction with the J2EE specification).
