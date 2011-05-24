@@ -3,6 +3,7 @@
     * [GettingStarted Introduction]
     * [Installation Installing Arit]
   * Resource types
+    * [ThreadsAndTimers Threads and timers]
     * [JULHandler JUL handlers]
     * [JCLLogFactory Cached JCL LogFactory instances]
   * [ReleaseNotes Release notes]
