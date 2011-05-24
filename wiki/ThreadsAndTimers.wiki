@@ -1,0 +1,5 @@
+= Threads and timers =
+
+Although the J2EE specification forbids applications to create unmanaged threads, they are commonly used, especially in Web applications. They are also a common source of class loader leaks. These leaks occur when the application fails to stop the threads it has started during its lifetime. Indeed, by definition they are unmanaged and the container has no way of identifying them and stopping them on behalf of the application.
+
+In some cases a thread owned by the container or the JRE may also accidentally get linked to an application class loader. This frequently happens with pooled threads or threads created lazily by the container in response to an action of the application.
