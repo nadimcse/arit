@@ -6,4 +6,5 @@
     * [ThreadsAndTimers Threads and timers]
     * [JULHandler JUL handlers]
     * [JCLLogFactory Cached JCL LogFactory instances]
+  * [UseCases Real-world use cases]
   * [ReleaseNotes Release notes]
