@@ -22,3 +22,5 @@ To avoid a class loader leak, the container (or code in the JRE) must do two thi
   # It must make sure that the context class loader of the thread doesn't refer to the application class loader. The container can do this by setting the context class loader explicitly on the new thread or by temporarily changing the context class loader of the current thread before creating the new thread.
 
 [http://arit.googlecode.com/svn/wiki/MemoryNotificationThread.png]
+
+[http://arit.googlecode.com/svn/wiki/MemoryNotificationThread-stacktrace.png]
