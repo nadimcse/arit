@@ -18,10 +18,16 @@ With respect to JCL, !WebSphere environments are particular for two reasons:
   * Applications deployed in !WebSphere use parent-first class loading by default (which could be consider as being in contradiction with the J2EE specification).
   * The WAS runtime already provides a version of JCL which is preconfigured such that by default, all messages logged with JCL will be routed through !WebSphere's logging subsystem.
 
-However, this doesn't mean that a !WebSphere environment satisfies the two conditions enumerated above. In fact, since !WebSphere provides JCL support out of the box, it also takes the necessary measures to clean up the class loader references held by JCL when an application is stopped. This normally avoids the class loader leak issue described above. However, this seems to fail in some (yet unknown) circumstances.
+However, this doesn't mean that a !WebSphere environment satisfies the two conditions enumerated above. In fact, since !WebSphere provides JCL support out of the box, it also takes the necessary measures to clean up the class loader references held by JCL when an application is stopped. This normally avoids the class loader leak issue described above. However, this may fail in some circumstances, as described below.
 
 In addition, in WAS 7.0 the JCL library is also included in the OSGi bundle that contains the JAX-WS implementation (Axis2). The `LogFactory` cache maintained by this instance appears not to be managed properly by the WAS runtime, which means that some applications using JAX-WS will cause class loader leaks.
 
 == Detection in Arit ==
 
 If JCL is deployed into the container, then Arit will report any entries in the `LogFactory` cache. On WAS 7.0, Arit also reports class loader references held by the JCL library included in the JAX-WS runtime.
+
+== What to do with class loader leaks caused by cached `LogFactory` instances? ==
+
+If you have added JCL yourself to the server runtime, then you should fix your configuration and remove it. Instead you should package JCL with the application.
+
+If JCL is shipped with your application server, then a class loader leak involving a cached `LogFactory` instance indicates that the cleanup performed by the application server was not effective. This is not necessary the fault of the server. In these situations, enable the [http://commons.apache.org/logging/troubleshooting.html JCL diagnostic logging] to determine why there is still an entry in the `LogFactory` cache after the application is stopped.
