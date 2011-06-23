@@ -4,6 +4,7 @@
     * [Installation Installing Arit]
   * Resource types
     * [ThreadsAndTimers Threads and timers]
+    * [ThreadLocal ThreadLocals]
     * [JULHandler JUL handlers]
     * [JCLLogFactory Cached JCL LogFactory instances]
   * [UseCases Real-world use cases]
