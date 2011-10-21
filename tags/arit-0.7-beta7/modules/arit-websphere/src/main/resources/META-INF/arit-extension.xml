@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:core="http://code.google.com/p/arit/core"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://code.google.com/p/arit/core https://arit.googlecode.com/svn/schemas/core.xsd">
+    <core:resource-type identifier="initial-context-props-cache"/>
+    <core:resource-type identifier="websphere-bug"/>
+    <core:resource-type identifier="ws-tie-to-stub-info-cache" showResourceId="true"/>
+    <core:resource-type identifier="ws-naming-cache"/>
+    <core:resource-type identifier="ws-cached-jaxb-object"/>
+    <core:resource-type identifier="ws-wlm-proxy"/>
+    <bean class="com.googlecode.arit.websphere.InitialContextPropsCacheEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.JAXWSRuntimeLogFactoryLoaderPlugin"/>
+    <bean class="com.googlecode.arit.websphere.VMRefModuleIdentityProvider"/>
+    <bean class="com.googlecode.arit.websphere.VMRefModuleIdentityType" name="vmRef"/>
+    <bean class="com.googlecode.arit.websphere.WASMBeanServerInspectorPlugin"/>
+    <bean class="com.googlecode.arit.websphere.WASMBeanServerProvider"/>
+    <bean class="com.googlecode.arit.websphere.WASModuleInspectorPlugin"/>
+    <bean class="com.googlecode.arit.websphere.bug.ArtifactLoaderUtilityResourceEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.bug.IZ67457ResourceEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.bug.JavaReflectionAdapterResourceEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.bug.PM04639ThreadInspectorPlugin"/>
+    <bean class="com.googlecode.arit.websphere.bug.PM21638ResourceEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.bug.TieToStubInfoCacheEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.jaxb.JAXBUtilsPoolResourceEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.jaxws.JAXWSThreadLocalValueInspectorPlugin"/>
+    <bean class="com.googlecode.arit.websphere.naming.NamingCacheEnumeratorFactory"/>
+    <bean class="com.googlecode.arit.websphere.orb.WLMProxyEnumeratorFactory"/>
+</beans>
