@@ -10,9 +10,7 @@ For the moment, the following JREs are supported:
 
 Arit used to support (and probably still does) Apache Harmony 1.5 and 1.6. However, because of Oracle's denial to grant an acceptable Java SE JCK license to the Harmony project, support for this runtime environment is no longer a goal of the Arit project.
 
-Arit is most actively tested and developed on !WebSphere 6.1 and 7.0. Currently, Arit is based on the [http://plexus.codehaus.org/ Plexus container], which is affected by [http://www-01.ibm.com/support/docview.wss?uid=swg1PK86109 PK86109]. This means that when running on WAS 7.0, at least FP7 is required.
-
-Arit also supports Tomcat and Jetty. No other application servers or servlet containers are currently supported. It is planned to add at least support for Apache Geronimo and JBoss in the future.
+Arit is most actively tested and developed on !WebSphere 6.1 and 7.0. Arit also supports Tomcat and Jetty. No other application servers or servlet containers are currently supported. It is planned to add at least support for Apache Geronimo and JBoss in the future.
 
 == Deploying Arit ==
 
