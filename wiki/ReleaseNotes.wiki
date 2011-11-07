@@ -1,12 +1,19 @@
 #summary Release notes
 #labels Featured
 
-= Release notes for 0.7 (unreleased) =
+= Release notes for 0.7 =
 
-  * Bug fixes and improved support for java.util.logging, including JULI (i.e. Tomcat's JUL implementation).
+  * Bug fixes and improved support for java.util.logging, including support for JULI (i.e. Tomcat's JUL implementation).
   * Improved support for Jetty 6.
   * Support for Axis2 modules (MAR files) and services archives (AAR files).
   * Arit now uses Spring instead of Plexus as IoC container.
+  * Various minor UI improvements.
+  * Better support for applications that create custom class loaders.
+  * Improved inspection of Thread objects.
+  * The leak detector now writes a report to the logs when a leak is detected (in addition to generating a JMX notification).
+  * The RHQ plugin now supports per application statistics.
+  * Arit now detects leaks caused by commons-discovery (when deployed in the server runtime).
+  * Various WebSphere specific enhancements.
 
 = Release notes for 0.6 =
 
