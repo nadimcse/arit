@@ -1,6 +1,10 @@
 #summary Release notes
 #labels Featured
 
+= Release notes for 0.7.1 =
+
+Minor bug fix release that solves an issue that occurs with particular WAS 7.0 setups.
+
 = Release notes for 0.7 =
 
   * Bug fixes and improved support for java.util.logging, including support for JULI (i.e. Tomcat's JUL implementation).
