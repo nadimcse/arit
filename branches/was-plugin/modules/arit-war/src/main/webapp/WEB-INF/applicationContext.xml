@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:core="http://code.google.com/p/arit/core"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://code.google.com/p/arit/core https://arit.googlecode.com/svn/schemas/core.xsd">
+    <import resource="classpath:arit-appcontext.xml"/>
+    <bean class="com.googlecode.arit.jmx.Cleaner"/>
+    <bean class="com.googlecode.arit.jmx.LeakDetector"/>
+    <bean class="com.googlecode.arit.report.ClassLoaderIdProvider"/>
+    <bean class="com.googlecode.arit.report.ResourceIdProvider"/>
+    <bean class="com.googlecode.arit.report.ModuleIdentityProvider"/>
+    <bean class="com.googlecode.arit.report.ReportGenerator"/>
+    <bean class="com.googlecode.arit.servlet.HtmlReportServlet" name="HtmlReportServlet"/>
+    <bean class="com.googlecode.arit.servlet.ModuleIdentityTypeIconManager" name="identity"/>
+    <bean class="com.googlecode.arit.servlet.ModuleInspectorFactory"/>
+    <bean class="com.googlecode.arit.servlet.ModuleTypeIconManager" name="module"/>
+    <bean class="com.googlecode.arit.servlet.ResourceTypeIconManager" name="resource"/>
+    <bean class="com.googlecode.arit.servlet.SchemaServlet" name="SchemaServlet"/>
+    <bean class="com.googlecode.arit.servlet.XmlReportServlet" name="XmlReportServlet"/>
+    <bean class="com.googlecode.arit.servlet.icon.Defunct" name="defunct"/>
+    <core:module-type identifier="unknown" iconFormat="PNG" resource="com/googlecode/arit/servlet/icon/unknown.png"/>
+</beans>
