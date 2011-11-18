@@ -25,16 +25,12 @@
                 <!-- Don't use 2.3.5 because of FELIX-3037 -->
                 <version>2.3.4</version>
                 <extensions>true</extensions>
-                <!-- configuration>
-                    <excludeDependencies>true</excludeDependencies>
+                <configuration>
                     <instructions>
-                        <_nouses>true</_nouses>
-                        <_removeheaders>Private-Package</_removeheaders>
-                        <Export-Package>*;-noimport:=true</Export-Package>
-                        <Import-Package>org.jaxen.*;resolution:=optional,*</Import-Package>
-                        <Bundle-Activator>org.apache.axiom.locator.Activator</Bundle-Activator>
+                        <Bundle-Activator>com.googlecode.arit.websphere.Activator</Bundle-Activator>
+                        <Eclipse-AutoStart>true</Eclipse-AutoStart>
                     </instructions>
-                </configuration -->
+                </configuration>
             </plugin>
         </plugins>
     </build>

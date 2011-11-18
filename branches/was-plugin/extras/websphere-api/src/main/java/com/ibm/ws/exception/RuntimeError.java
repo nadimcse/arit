@@ -16,5 +16,19 @@
 package com.ibm.ws.exception;
 
 public class RuntimeError extends Exception {
+    public RuntimeError() {
+        super();
+    }
 
+    public RuntimeError(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public RuntimeError(String message) {
+        super(message);
+    }
+
+    public RuntimeError(Throwable cause) {
+        super(cause);
+    }
 }

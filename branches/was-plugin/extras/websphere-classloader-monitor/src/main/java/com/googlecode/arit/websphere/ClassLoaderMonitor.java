@@ -37,6 +37,7 @@ import com.ibm.ws.runtime.deploy.DeployedObjectEvent;
 import com.ibm.ws.runtime.deploy.DeployedObjectListener;
 import com.ibm.ws.runtime.service.ApplicationMgr;
 import com.ibm.wsspi.runtime.component.WsComponent;
+import com.ibm.wsspi.runtime.service.WsServiceRegistry;
 
 public class ClassLoaderMonitor implements WsComponent, DeployedObjectListener {
     private static final TraceComponent TC = Tr.register(ClassLoaderMonitor.class, "CustomServices", null);
@@ -66,10 +67,6 @@ public class ClassLoaderMonitor implements WsComponent, DeployedObjectListener {
     private List<ClassLoaderInfo> classLoaderInfos;
     private Timer timer;
     
-    public void setApplicationMgr(ApplicationMgr applicationMgr) {
-        this.applicationMgr = applicationMgr;
-    }
-
     public String getName() {
         return ClassLoaderMonitor.class.getName();
     }
@@ -84,6 +81,11 @@ public class ClassLoaderMonitor implements WsComponent, DeployedObjectListener {
 
     public void start() throws RuntimeError, RuntimeWarning {
         state = STARTING;
+        try {
+            applicationMgr = WsServiceRegistry.getService(this, ApplicationMgr.class);
+        } catch (Exception ex) {
+            throw new RuntimeError(ex);
+        }
         applicationMgr.addDeployedObjectListener(this);
         classLoaderInfos = new LinkedList<ClassLoaderInfo>();
         timer = new Timer("Class Loader Monitor");
