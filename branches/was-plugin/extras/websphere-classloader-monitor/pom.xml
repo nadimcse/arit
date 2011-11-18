@@ -22,7 +22,8 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.3.5</version>
+                <!-- Don't use 2.3.5 because of FELIX-3037 -->
+                <version>2.3.4</version>
                 <extensions>true</extensions>
                 <!-- configuration>
                     <excludeDependencies>true</excludeDependencies>
