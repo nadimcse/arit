@@ -8,7 +8,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>websphere-classloader-monitor</artifactId>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
     <name>Arit :: Extras :: WebSphere class loader monitor</name>
     <dependencies>
         <dependency>
@@ -17,4 +17,24 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.5</version>
+                <extensions>true</extensions>
+                <!-- configuration>
+                    <excludeDependencies>true</excludeDependencies>
+                    <instructions>
+                        <_nouses>true</_nouses>
+                        <_removeheaders>Private-Package</_removeheaders>
+                        <Export-Package>*;-noimport:=true</Export-Package>
+                        <Import-Package>org.jaxen.*;resolution:=optional,*</Import-Package>
+                        <Bundle-Activator>org.apache.axiom.locator.Activator</Bundle-Activator>
+                    </instructions>
+                </configuration -->
+            </plugin>
+        </plugins>
+    </build>
 </project>

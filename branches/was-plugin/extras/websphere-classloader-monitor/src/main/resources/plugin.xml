@@ -1,0 +1,18 @@
+<?eclipse version="3.0"?>
+<plugin id="com.googlecode.arit.websphere"
+        name="WebSphere class loader monitor"
+        provider-name="Arit">
+    <extension point="com.ibm.wsspi.extension.applicationserver-startup">
+        <components>
+            <component startup="5000" class="com.googlecode.arit.websphere.ClassLoaderMonitor" processType="Servant"
+                       component-id="Arit_ClassLoaderMonitor" startup-mode="dependency">
+                <dependency type="service" name="com.ibm.ws.runtime.service.ApplicationMgr" mandatory="true" method="setWebApplicationMgr"/>
+            </component>
+        </components>
+    </extension>
+    <extension point="com.ibm.wsspi.extension.application-server-components">
+        <components>
+            <component id="Arit_ClassLoaderMonitor"/>
+        </components>
+    </extension>
+</plugin>
