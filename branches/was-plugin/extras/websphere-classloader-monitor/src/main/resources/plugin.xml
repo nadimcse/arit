@@ -3,17 +3,12 @@
     <extension point="com.ibm.wsspi.extension.applicationserver-startup">
         <components>
             <component startup="5000"
-                       type="Arit_ClassLoaderMonitor"
-                       platform="distributed,os400,zos"
-                       processType="Servant"/>
+                       class="com.googlecode.arit.websphere.ClassLoaderMonitor"
+                       processType="Servant"
+                       component-id="Arit_ClassLoaderMonitor"
+                       startup-mode="immediate">
+                <dependency type="service" name="com.ibm.ws.runtime.service.ApplicationMgr"/>
+            </component>
         </components>
-    </extension>
-    <extension point="com.ibm.wsspi.extension.server-components">
-        <components>
-            <component class="com.googlecode.arit.websphere.ClassLoaderMonitor"
-                       name="Arit_ClassLoaderMonitor"
-                       platform="distributed,os400,zos"
-                       processType="Servant"/>
-       </components>
     </extension>
 </plugin>
