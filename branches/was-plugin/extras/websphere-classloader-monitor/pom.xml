@@ -27,6 +27,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
+                        <Bundle-SymbolicName>com.googlecode.arit.websphere;singleton:=true</Bundle-SymbolicName>
                         <Bundle-Activator>com.googlecode.arit.websphere.Activator</Bundle-Activator>
                         <Eclipse-AutoStart>true</Eclipse-AutoStart>
                     </instructions>
