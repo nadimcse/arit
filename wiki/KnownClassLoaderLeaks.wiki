@@ -1,13 +1,13 @@
 #summary Known class loader leaks in various products
 
-= WebSphere =
+= !WebSphere =
 
-* [http://www-01.ibm.com/support/docview.wss?uid=swg1IZ67457 IZ67457]: May affect any application running on WAS 7 with a JDK < SR8.
-* [http://www-01.ibm.com/support/docview.wss?uid=swg1PK83186 PK83186]: Affects all applications using message driven beans running on WAS < 6.1.0.27 and WAS < 7.0.0.5.
-* [http://www-01.ibm.com/support/docview.wss?uid=swg1PM04639 PM04639]: May randomly affect a single application on WAS < 6.1.0.33 and WAS < 7.0.0.15.
-* [http://www-01.ibm.com/support/docview.wss?uid=swg1PM18729 PM18729]: Affects applications using JAX-RPC or JAX-WS on WAS < 6.1.0.35 and WAS < 7.0.0.13.
-* [http://www-01.ibm.com/support/docview.wss?uid=swg1PM21638 PM21638]: Affects JSP and JSF applications running on WAS < 7.0.0.15.
+  * [http://www-01.ibm.com/support/docview.wss?uid=swg1IZ67457 IZ67457]: May affect any application running on WAS 7 with a JDK < SR8.
+  * [http://www-01.ibm.com/support/docview.wss?uid=swg1PK83186 PK83186]: Affects all applications using message driven beans running on WAS < 6.1.0.27 and WAS < 7.0.0.5.
+  * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM04639 PM04639]: May randomly affect a single application on WAS < 6.1.0.33 and WAS < 7.0.0.15.
+  * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM18729 PM18729]: Affects applications using JAX-RPC or JAX-WS on WAS < 6.1.0.35 and WAS < 7.0.0.13.
+  * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM21638 PM21638]: Affects JSP and JSF applications running on WAS < 7.0.0.15.
 
 = Axis 1.x =
 
-* [https://issues.apache.org/jira/browse/AXIS-2674 AXIS-2674]: Affects all applications using Axis 1.4.
+  * [https://issues.apache.org/jira/browse/AXIS-2674 AXIS-2674]: Affects all applications using Axis 1.4.
