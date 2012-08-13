@@ -7,6 +7,8 @@
   * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM04639 PM04639]: May randomly affect a single application on WAS < 6.1.0.33 and WAS < 7.0.0.15.
   * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM18729 PM18729]: Affects applications using JAX-RPC or JAX-WS on WAS < 6.1.0.35 and WAS < 7.0.0.13.
   * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM21638 PM21638]: Affects JSP and JSF applications running on WAS < 7.0.0.15.
+  * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM36842 PM36842]: Although the APAR refers to SCA, the problem also affects JAX-WS applications on WAS < 7.0.0.19.
+  * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM46493 PM46493]: Affects all applications that use JAX-WS clients on WAS < 7.0.0.21.
 
 = Axis 1.x =
 
