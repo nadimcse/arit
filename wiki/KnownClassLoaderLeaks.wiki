@@ -8,6 +8,7 @@
   * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM18729 PM18729]: Affects applications using JAX-RPC or JAX-WS on WAS < 6.1.0.35 and WAS < 7.0.0.13.
   * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM21638 PM21638]: Affects JSP and JSF applications running on WAS < 7.0.0.15.
   * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM36842 PM36842]: Although the APAR refers to SCA, the problem also affects JAX-WS applications on WAS < 7.0.0.19.
+  * PM44455: This APAR described a class loader leak related to `org.apache.axis2.jaxws.description.DescriptionKey` objects. It has been cancelled by IBM because the original fix introduced a memory leak (due to an incorrect usage of `WeakHashMap`). Until now, IBM has not been able to come up with a proper fix for the issue.
   * [http://www-01.ibm.com/support/docview.wss?uid=swg1PM46493 PM46493]: Affects all applications that use JAX-WS clients on WAS < 7.0.0.21.
 
 = Axis 1.x =
