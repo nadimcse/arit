@@ -1,9 +1,9 @@
 #summary Release notes
 #labels Featured
 
-= Release notes for 0.7.1 =
+= Release notes for 0.7.2 =
 
-Maintenance release that fixes some minor bugs and introduces an additional WebSphere feature (detection of cached servant objects).
+Maintenance release that fixes some minor bugs and introduces an additional !WebSphere feature (detection of cached servant objects).
 
 = Release notes for 0.7.1 =
 
