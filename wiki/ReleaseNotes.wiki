@@ -3,6 +3,10 @@
 
 = Release notes for 0.7.1 =
 
+Maintenance release that fixes some minor bugs and introduces an additional WebSphere feature (detection of cached servant objects).
+
+= Release notes for 0.7.1 =
+
 Minor bug fix release that solves an issue that occurs with particular WAS 7.0 setups.
 
 = Release notes for 0.7 =
