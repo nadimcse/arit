@@ -1,6 +1,10 @@
 #summary Release notes
 #labels Featured
 
+= Release notes for 0.7.3 =
+
+Maintenance release that adds compatibility with recent IBM Java 6 versions (in particular the version that comes with WAS 8.5.0.2) and Oracle Java 7.
+
 = Release notes for 0.7.2 =
 
 Maintenance release that fixes some minor bugs and introduces an additional !WebSphere feature (detection of cached servant objects).
