@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.googlecode.arit</groupId>
+        <artifactId>modules</artifactId>
+        <version>0.7.3</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <artifactId>arit-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>Arit :: EAR distribution</name>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>arit-war</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <displayName>Arit</displayName>
+                    <description>J2EE Application Resource Inspection Tool [http://code.google.com/p/arit/]</description>
+                    <modules>
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>arit-war</artifactId>
+                            <contextRoot>/arit</contextRoot>
+                            <bundleFileName>arit.war</bundleFileName>
+                        </webModule>
+                    </modules>
+                    <archive>
+                        <manifestEntries>
+                            <!-- On WebSphere this allows to easily identify the version that has been deployed
+                                 (The value of Implementation-Version is displayed in the admin console
+                                 as "Application build level"). -->
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
